@@ -4,7 +4,7 @@ from .quest_getter import get_question
 
 
 def existence_check(quest: DbQuestion, db: Session) -> bool:
-    if not db.query(DbQuestion).filter(DbQuestion.id == quest.id).first():
+    if db.query(DbQuestion).filter(DbQuestion.id == quest.id).first():
         return True
     return False
 
@@ -22,12 +22,12 @@ def add_new_questions(question_num: int, db: Session) -> DbQuestion:
         pass
     new_quests = get_question(question_num)
     for i in new_quests:
-        if existence_check(i, db):
+        if not existence_check(i, db):
             add_to_db(i, db)
             continue
         while True:
             another_quest = get_question(1)[0]
-            if existence_check(another_quest, db):
+            if not existence_check(another_quest, db):
                 add_to_db(another_quest, db)
                 break
     return last_quest

@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, Session
 
-SQLALCHEMY_DATABASE_URL = "postgresql+psycopg2://test_user:pswrd@localhost:5450/test_db"
+SQLALCHEMY_DATABASE_URL = "postgresql+psycopg2://test_user:pswrd@172.16.1.4:5432/test_db"
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL
@@ -10,8 +10,6 @@ engine = create_engine(
 
 Base = declarative_base()
 
-
-metadata = Base.metadata
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 

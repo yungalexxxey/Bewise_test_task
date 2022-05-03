@@ -9,5 +9,5 @@ app = FastAPI()
 
 
 @app.post("/", response_model=QuestionDisplay)
-async def test_task(post: IncomePost, db: Session = Depends(get_db)):
+async def test_task(post: IncomePost, db: Session = Depends(get_db)) -> dict:
     return add_new_questions(post.questions_num, db)
