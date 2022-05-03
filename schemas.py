@@ -8,10 +8,10 @@ class IncomePost(BaseModel):
 
 
 class QuestionDisplay(BaseModel):
-    id: int = 0
-    answer: str = ""
-    question: str = ""
-    created_at: datetime.datetime = ""
+    id: int = None
+    answer: str = None
+    question: str = None
+    created_at: datetime.datetime = None
 
     class Config:
         orm_mode = True
