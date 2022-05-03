@@ -28,7 +28,7 @@ SQLALCHEMY_DATABASE_URL = "postgresql+psycopg2://ИМЯ_ПОЛЬЗОВАТЕЛЯ
 
 После проделанных выше действий можно запускать docker-compose:
 ```
-sudo docker compose up -d
+sudo docker-compose up -d
 ```
 
 Для остановки образа нужно будет использовать следующую команду:
